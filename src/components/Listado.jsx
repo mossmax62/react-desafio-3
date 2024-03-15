@@ -7,14 +7,14 @@ const Listado = ({colaboradores}) => {
     return (
         <>
         <h1>Listado de Colaboradores</h1>
-        <table>
+        <table className="table table-striped">
         <thead>
             <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Edad</th>
-            <th>Cargo</th>
-            <th>Telefono</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Telefono</th>
             </tr>
         </thead>
         <tbody>

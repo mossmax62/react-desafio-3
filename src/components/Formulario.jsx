@@ -33,7 +33,7 @@ const Formulario = ({agregarColaborador, setError}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!nombre || !apellido || !email) {
+        if (!nombre || !apellido || !email || !edad || !cargo || !telefono) {
             setError({ message: "Todos los campos son obligatorios", color: "danger" });
         }else{
         agregarColaborador(
@@ -41,7 +41,7 @@ const Formulario = ({agregarColaborador, setError}) => {
                 id: uuidv4(),
                 nombre: nombre,
                 apellido: apellido,
-                email: email,
+                correo: email,
                 edad: edad,
                 cargo: cargo,
                 telefono: telefono
@@ -96,7 +96,7 @@ const Formulario = ({agregarColaborador, setError}) => {
             value={telefono}
             onChange={handleTelefono}
         />
-        <button type="submit">Enviar</button>
+        <button type="submit" className='btn btn-primary'>Enviar</button>
         </form>
     );
     }
