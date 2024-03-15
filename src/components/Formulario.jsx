@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {v4 as uuidv4} from 'uuid';
-const Formulario = ({agregarColaborador}) => {
+const Formulario = ({agregarColaborador, setError}) => {
     
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
@@ -32,7 +32,10 @@ const Formulario = ({agregarColaborador}) => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(nombre, apellido, email);
+
+        if (!nombre || !apellido || !email) {
+            setError({ message: "Todos los campos son obligatorios", color: "danger" });
+        }else{
         agregarColaborador(
             {
                 id: uuidv4(),
@@ -51,7 +54,8 @@ const Formulario = ({agregarColaborador}) => {
         setEdad('');
         setCargo('');
         setTelefono('');
-        
+        setError({ message: "Colaborador agregado con éxito", color: "success" });
+    }
     };
     
     return (
