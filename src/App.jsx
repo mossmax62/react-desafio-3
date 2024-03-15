@@ -15,27 +15,33 @@ function App() {
     setDatosOriginales(prevDatosOriginales => [...prevDatosOriginales, nuevoColaborador]);
   }
   
-
+  const eliminarColaborador = (correo) => {
+    setColaboradores(prevColaboradores => prevColaboradores.filter(colaborador => colaborador.correo !== correo));
+    setDatosOriginales(prevDatosOriginales => prevDatosOriginales.filter(colaborador => colaborador.correo !== correo));
+  }
   return (
     <>
-    <Container fluid>
-      <Row>
-        <Col xs={12}>
-          <Buscador datosOriginales={datosOriginales} setColaboradores={setColaboradores} />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12} md={8}>
-          <Listado colaboradores={colaboradores}/>
-        </Col>
-        <Col xs={12} md={4}>
-          <Formulario agregarColaborador={agregarColaborador} setError={setError} />
-          {error && <Alert message={error.message} color={error.color} />}
-        </Col>
-      </Row>
-    </Container>
-
-  </>
+      <Container fluid>
+        <Row>
+          <Col xs={12}>
+            <Buscador datosOriginales={datosOriginales} setColaboradores={setColaboradores} />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12} md={8}>
+          By Max Mussuto 2024
+            <Listado colaboradores={colaboradores}
+            eliminarColaborador={eliminarColaborador} />
+          </Col>
+          <Col xs={12} md={4}>
+          <div style={{width: '100%'}}>
+            <Formulario agregarColaborador={agregarColaborador} setError={setError} />
+              {error && <Alert message={error.message} color={error.color} />}
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }
 

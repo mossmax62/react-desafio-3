@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Buscador = ({ datosOriginales, setColaboradores }) => {
     const [search, setSearch] = useState("");
